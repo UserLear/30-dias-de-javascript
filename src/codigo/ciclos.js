@@ -6,7 +6,7 @@ for (var i = 1; i < 10; i++) {
 //for-in para recorer las propiedades de un objetos
 let identi = {
     nombres: "Moises Emanuel",
-   apellidos: "Ayala Mejia",
+    apellidos: "Ayala Mejia",
     ID: 0801199112890,
     sangre: "A+"
 }

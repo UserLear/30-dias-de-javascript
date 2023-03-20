@@ -16,3 +16,5 @@ console.log(multipl(5));
 //console.log(multipl(b2)); 
 //console.log(b1); devuelve error porque la variable no puede ser accedida eso implica que no ha sido declarada
 
+
+

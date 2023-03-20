@@ -2,6 +2,7 @@
 var numer = 20;
 console.log(numer);
 console.log(1e-6);
+console.log(1e+6);
 
 //tipo de tado string
 let string = 'hola';
@@ -36,13 +37,17 @@ console.log(objet['aspiracion']['profecion1']) //notacion de corchete
 //tipo de dato boolean
 var bool = true;
 let bool2 = false; 
-console.log(bool, bool2)
+console.log(bool, bool2);
 
 //identificar tipo de dato
-console.log(typeof numer)
-console.log(typeof string)
-console.log(typeof objet)
-console.log(typeof bool)
+console.log(typeof numer);
+console.log(typeof 5);
+console.log(typeof string);
+console.log(typeof "hola")
+console.log(typeof objet);
+console.log(typeof {});
+console.log(typeof bool);
+console.log(typeof true);
 
 
 

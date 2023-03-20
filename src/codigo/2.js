@@ -17,12 +17,17 @@ function seis(p1, p2) {
     let multiplicacion = p1 * p2;
     return multiplicacion;
 };
-console.log(seis(4,3));
+console.log(seis(4,3)); //con parametros
+
+function siete() {
+    return console.log("imprimiste algo sin parametros");
+}
+siete() //prueba-sin parametros
 
 //IIFE (immediately invoked function expression)
 (function() {
     console.log("Yo soy un programador")
-})();
+})(); //esta tira error porque se debe ejecutar de forma individual
 
 //function-exprection
 let saluda = function () {

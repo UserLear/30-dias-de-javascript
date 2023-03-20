@@ -8,4 +8,5 @@ switch (a1) {
         console.log(`Hola ${a1} eres una gran Patologa.`);
         break;
     default:
-        console.log(`Hola ${a1} eres un gran Empresario`); }
+        console.log(`Hola ${a1} eres un gran Empresario`);
+}
