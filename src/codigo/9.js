@@ -14,7 +14,13 @@ function multipl (a3) {
 }
 console.log(multipl(5));
 //console.log(multipl(b2)); 
-//console.log(b1); devuelve error porque la variable no puede ser accedida eso implica que no ha sido declarada
+
+//hosting
+function miFuncion() {
+    console.log(x);
+    var x = 10;
+}
+miFuncion() //devuelve undefined ya que mueve la variable hacia arriba pero no su valor
 
 
 
