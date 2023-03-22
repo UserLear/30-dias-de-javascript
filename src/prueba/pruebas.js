@@ -56,3 +56,5 @@ function getPetExerciseInfo(type, age) {
 
 //Ejercicio triangulo-no realizado
 //Ejercicio gato famoso-no realizado
+
+//Ejercicio-obten el promedio de los estudiantes
