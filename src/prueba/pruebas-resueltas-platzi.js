@@ -1,9 +1,7 @@
-
 //4-encontrar el tipo de dato
 function solution(valor) {
   return typeof valor;
 }
-
 
 //7-calcula la propina
 function calculateTip(billAmount, tipPercentage) {
@@ -69,7 +67,7 @@ function getPetExerciseInfo(type, age) {
 }
 //15-dibuja un tiangulo
  //forma un tiangulo isosceles
- export function printTriangle(size, character) {
+ function printTriangle(size, character) {
   let triangle = "";
   let newSize = Number(size);
 

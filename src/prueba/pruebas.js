@@ -1,4 +1,14 @@
-// año bisiesto
+//4-encontrar el tipo de dato
+function solution(valor) {
+  return typeof valor;
+}
+
+//7-calcula la propina
+function calculateTip(billAmount, tipPercentage) {
+  return billAmount * (tipPercentage / 100)
+}
+
+//11-año bisiesto
 function isLeapYear(year) {
     if (year < 0) {
         console.log(false);
@@ -15,7 +25,7 @@ function isLeapYear(year) {
   isLeapYear(-2024);
   isLeapYear(1984.25);
 
-  //Ejercicio de mascotas
+  //13-obten informacion mascotas segun su tipo
 function getPetExerciseInfo(type, age) {
     switch (type) {
       case "perro":
@@ -54,7 +64,8 @@ function getPetExerciseInfo(type, age) {
   console.log(getPetExerciseInfo("gatos",8))
   console.log(getPetExerciseInfo("mamut",25))
 
-//Ejercicio triangulo-no realizado
-//Ejercicio gato famoso-no realizado
+//15-Ejercicio triangulo-no realizado
 
-//Ejercicio-obten el promedio de los estudiantes
+//17-Ejercicio gato famoso-no realizado
+
+//19-Ejercicio-obten el promedio de los estudiantes-no realizado
