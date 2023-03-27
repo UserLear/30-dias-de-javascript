@@ -8,3 +8,5 @@
 
 //tutorial de matematica financiera
 
+let saluda1 = () => {console.log("Moises")};
+saluda1();

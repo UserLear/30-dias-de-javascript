@@ -36,7 +36,7 @@ let saluda = function () {
 saluda();
 
 //arrow function (sintaxis diferente)
-let saluda1 = () => console.log("Moises");
+let saluda1 = () => {console.log("Moises")};
 saluda1();
 
 
