@@ -202,3 +202,11 @@ export function findLargestPalindrome(words) {
   // Ya que si no existe ni uno solo en el array, su valor se mantiene como null
   return largest;
 }
+
+//prueba 25
+const arr = [1, 2, 3, 4, 5]; 
+
+const result = arr.map(num => num * 2).filter(num => num > 5); 
+
+console.log(result); //[6, 8,10]
+ 
