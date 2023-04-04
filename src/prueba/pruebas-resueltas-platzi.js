@@ -202,3 +202,154 @@ export function findLargestPalindrome(words) {
   // Ya que si no existe ni uno solo en el array, su valor se mantiene como null
   return largest;
 }
+//26-CREA UNA CALCULADORA CON CLOSURES
+function createCalculator() {
+  // Primero declaramos nuestra variable privada
+  // que tendrá un valor inicial de 0
+  let total = 0;
+
+  // dentro del return devolvemos las funciones que modifican la variable privada
+  return {
+    add(value) {
+      // Para sumar, simplemente sumamos el valor al total
+      // y retornamos el total
+      total += value;
+      return total;
+    },
+
+    subtract(value) {
+     // Lo mismo con la resta 
+      total -= value;
+      return total;
+    },
+
+    multiply(value) {
+      // Lo mismo con la multiplicación y división
+      total *= value;
+      return total;
+    },
+
+    divide(value) {
+      total /= value;
+      return total;
+    },
+
+    // Al final una función para reiniciar el valor a 0
+    clear() {
+      total = 0;
+      return total;
+    },
+
+    getTotal() {
+      // Y el total por si se quiere guardar el valor en otra variable en cierto momento
+      return total;
+    },
+  };
+}
+
+//28-CREA TU PROPIO METODO MAP
+function myMap(array, func) {
+  // Creamos el array que retornaremos
+  // Inicialmente está vacío 
+  const rta = [];
+  for (let i = 0; i < array.length; i++) {
+    // Luego iteramos por cada elemento del array
+    const element = array[i];
+
+    // Y lo vamos pasando al array vacío después de ejecutar 
+    // la función sobre cada elemento del array
+    rta.push(func(element));
+
+    // Es importante recalcar que en ningún momento modificamos el array original 
+  }
+
+  // Al final lo retornamos
+  return rta;
+}
+
+//33-CREA UN PLANIFICADOR DE TAREAS
+export function createTaskPlanner() {
+  // Empezamos con un array vacío
+  // aquí almacenaremos las tareas
+  let tasks = [];
+
+  // retornamos las funciones 
+  // que servirán para manipular el array
+  return {
+    // La función de agregar tareas debe recibir una tarea
+    addTask(task) {
+      // Por lógica al añadir una nueva tarea inicia sin estar completada
+      task.completed = false;
+      // Una vez modificada la enviamos al array
+      tasks.push(task);
+    },
+
+    //  Ahora la función para remover tareas
+    removeTask(value) {
+       // Dependiendo si el valor es un número o un string
+      if (typeof value === "number") {
+        // Si es un número, filtramos todas las tareas que no tengan el mismo valor
+        //  y luego lo reasignamos al array de tareas
+        tasks = tasks.filter((task) => task.id !== value);
+      } else {
+        // En caso de ser un string, hacemos lo mismo pero con la propiedad de .name
+        tasks = tasks.filter((task) => task.name !== value);
+      }
+    },
+
+    // Para obtener las tareas simplemente las retornamos
+    getTasks() {
+      return tasks;
+    },
+
+     // Para obtener las tareas pendientes o completadas simplemente las filtramos
+    // y retornamos el resultado
+    getPendingTasks() {
+      return tasks.filter((task) => !task.completed);
+    },
+
+    getCompletedTasks() {
+      return tasks.filter((task) => task.completed);
+    },
+
+    // Para marcar una tarea dependiendo el valor recibido
+    markTaskAsCompleted(value) {
+      // primero declaramos la variable de index
+      // la cual tendrá el indice de la posición del elemento
+      let index;
+
+     // buscamos el indice dependiendo el valor
+      if (typeof value === "number") {
+        // buscamos por index dependiendo si es por id
+        index = tasks.findIndex((task) => task.id === value);
+      } else {
+        // O por name
+        index = tasks.findIndex((task) => task.name === value);
+      }
+
+      // Al final con ese indice modificamos la propiedad de completed a true
+      tasks[index].completed = true;
+    },
+
+    getSortedTasksByPriority() {
+      // Para ordenar las tareas sin modificar el array original
+     // solamente hacemos una copia del array y ejecutamos sort sobre este
+      const sortedTasks = [...tasks].sort((a, b) => a.priority - b.priority);
+      // Al final lo retornamos
+      return sortedTasks;
+    },
+
+    filterTasksByTag(tag) {
+      // Filtramos las tareas que incluyan cierto tag
+      return tasks.filter((task) => task.tags.includes(tag));
+    },
+
+    updateTask(taskId, updates) {
+     
+      // obtenemos el id como lo hicimos previamente
+      const index = tasks.findIndex((task) => task.id === taskId);
+      // agregamos las propiedades extras destructurando ambos objetos
+      tasks[index] = { ...tasks[index], ...updates };
+    },
+  };
+}
