@@ -354,3 +354,109 @@ export function createTaskPlanner() {
   };
 }
 
+//35 CREA UNA PROMESA PARA MANDAR EMAILS
+export function sendEmail(email, subject, body) {
+  // De entrada empezamos retornando una promesa
+  // La cual nos provee de resolve y reject dependiendo si hay éxito en esta
+  return new Promise((resolve, reject) => {
+    // Primero validamos que todos los aspectos del email estén disponibles
+    if (email && subject && body) {
+      // De ser así, creamos un timeout para "enviar" el email
+      // Recuerden hacer uso de window para que las pruebas pasen
+      window.setTimeout(() => {
+        // Dentro del timeout definimos un objeto con
+        // todos los datos recibidos
+        const emailInfo = {
+          email,
+          subject,
+          body,
+        };
+
+        // Y lo pasamos a la resolución exitosa de la promesa
+        // Para que esto sea "enviado" después de 2 segundos
+        resolve(emailInfo);
+      }, 2000);
+    } else {
+      // En caso de faltar algún dato, lanzamos un error indicándolo
+      reject(new Error("Hacen falta datos para poder enviar el correo"));
+    }
+  });
+}
+// 36 EVITA EL CALLBACK HELL HACIENDO USO DE PROMISES
+export function doTask1() {
+  return new Promise((resolve, reject) =>
+    (window.setTimeout(() => resolve('Task 1'), 300))
+  );
+}
+
+export function doTask2() {
+  return new Promise((resolve, reject) => {
+    window.setTimeout(() => resolve('Task 2'), 300)
+  })
+}
+
+export function doTask3() {
+  return new Promise((resolve, reject) => 
+    (window.setTimeout(() => resolve('Task 3'), 300))
+  )
+}
+
+//solo le agregamos la promesa y el resolve
+
+exercise.js
+
+import { doTask1, doTask2, doTask3 } from './tasks';
+
+export function runCode() {
+  const strings = [];
+  return doTask1()
+    .then(res => {
+      strings.push(res)
+      return doTask2();
+    })
+    .then(res => {
+      strings.push(res)
+      return doTask3();
+    })
+    .then(res => {
+      strings.push(res)
+      return strings
+    })
+    .catch(error => {
+      console.log(error)
+    });
+}
+
+//38 EVITA EL CALLBACK HELL HACIENDO USO DE AWAIT
+export async function runCode() {
+  const strings = [];
+
+  strings.push(await doTask1());
+  strings.push(await doTask2());
+  strings.push(await doTask3());
+
+  return strings;
+}
+//task.js
+
+export async function doTask1(callback) {
+  return new Promise((resolve, reject) => {
+
+    window.setTimeout(() => resolve('Task 1'), 300)
+  })
+}
+
+export async function doTask2(callback) {
+  return new Promise((resolve, reject) => {
+
+    window.setTimeout(() => resolve('Task 2'), 300)
+  })
+}
+
+export async function doTask3(callback) {
+  return new Promise((resolve, reject) => {
+
+    window.setTimeout(() => resolve('Task 3'), 300)
+  })
+}
+
