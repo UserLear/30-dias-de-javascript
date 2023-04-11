@@ -427,7 +427,7 @@ export function runCode() {
     });
 }
 
-//38 EVITA EL CALLBACK HELL HACIENDO USO DE AWAIT
+//38-EVITA EL CALLBACK HELL HACIENDO USO DE AWAIT
 export async function runCode() {
   const strings = [];
 
@@ -484,4 +484,34 @@ export function validateForm(formData, registeredUsers) {
   //Retorno
   return (`Tu registro fue exitoso ${name} ${lastname}`)
 
+}
+
+//43-AGRUPA LOS PRODUCTOS
+export function groupProducts(products, category) {
+  // Filtrar los produtos
+  const products1 = products.filter(prod => prod.category === category);
+  // Nombre de los productos separados por comas en orden
+  const prodName = products1.map(prod => prod.name).join(', ');
+  // Suma de los precios de productos de la categoría
+  const sumPrices = products1.map(prod => prod.price).reduce((sum, curr) => sum + curr);
+
+  return {
+    products: prodName,
+    totalPrice: sumPrices
+  }
+}
+
+//45-Encuentra la ubicación del valor buscado
+export function searchValue(array, value)
+{
+  let flat = array.flat(1).includes(value);
+  if (!flat)
+    throw new Error("Valor no encontrado");
+
+  let rta;
+  const result = array.map((array, index) => {
+    if (array.includes(value))
+      rta = { row: index, column: array.indexOf(value) }
+  });
+  return rta;
 }
