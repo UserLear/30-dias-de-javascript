@@ -41,12 +41,17 @@ const originalArray = [1, 2, 3, 4];
 const copiedArray = [...originalArray];
 
 console.log(originalArray === copiedArray); // Output: false
+/**En este ejemplo, se utiliza el spread 
+ * operator para expandir los elementos del
+ *  array original en una nueva instancia
+ *  de un array. */
 
 //.......bidimensional
 const matrix = [];
 matrix[0] = [1, 2, 3];
 matrix[1] = [4, 5, 6];
 matrix[2] = [7, 8, 9];
+//se puede crear vacio y luego agregar a sus elementos
 
 console.log(matrix);
 // Output: [
@@ -70,6 +75,7 @@ matrix[1][2] = 6;
 matrix[2][0] = 7;
 matrix[2][1] = 8;
 matrix[2][2] = 9;
+//se puede crear el arrar bidimensional utilizando la clase constructora
 
 console.log(matrix);
 // Output: [
@@ -77,10 +83,37 @@ console.log(matrix);
 //   [4, 5, 6], 
 //   [7, 8, 9]
 // ]
-//indices para acceder a los elementos
+//indices para acceder a los elementos del array bidimensional
 console.log(matrix[1][1]);
 // Output: 5
 
-//.......copiar bidimensional
+//.......spread operator
+const originalMatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const copiedMatrix = [...originalMatrix];
 
+console.log(originalMatrix === copiedMatrix);
+// Output: false
+/**el spread operator se utiliza para crear
+ *  una copia profunda del array original, 
+ * lo que significa que los elementos dentro
+ *  del array también se copian */
+
+//.......arrays tridimensional
+const cube = [];
+for (let i = 0; i < 3; i++) {
+  cube[i] = [];
+	for (let j = 0; j < 3; j++) {
+		cube[i][j] = [];
+		for (let k = 0; k < 3; k++) {
+			cube[i][j][k] = i + j + k;
+		}
+	}
+}
+console.log(cube);
+// Output: 
+//[
+//  [[0, 1, 2], [1, 2, 3], [2, 3, 4]], 
+//  [[1, 2, 3], [2, 3, 4], [3, 4, 5]], 
+//  [[2, 3, 4], [3, 4, 5], [4, 5, 6]]
+//]
 
